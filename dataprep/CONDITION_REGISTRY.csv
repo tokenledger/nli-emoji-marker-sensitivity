@@ -1,0 +1,25 @@
+condition_index,condition_id,condition_type,inserted_text,inserted_token_count,edit_side,placement,parent_phrase_id,component_position,source_lexicon,synthetic_lexical_ablation,new_manual_validation
+0,c00_clean,clean,,0,none,none,,,clean,false,false
+1,c01_informal_fr,informal_single_token,fr,1,hypothesis,suffix,,,train_markers,false,false
+2,c02_informal_tbh,informal_single_token,tbh,1,hypothesis,suffix,,,train_markers,false,false
+3,c03_informal_ngl,informal_single_token,ngl,1,hypothesis,suffix,,,train_markers,false,false
+4,c04_informal_real_talk,informal_full_phrase,real talk,2,hypothesis,suffix,,,train_markers,false,false
+5,c05_informal_on_god,informal_full_phrase,on god,2,hypothesis,suffix,,,train_markers,false,false
+6,c06_informal_istg,informal_single_token,istg,1,hypothesis,suffix,,,train_markers,false,false
+7,c07_informal_frfr,informal_single_token,frfr,1,hypothesis,suffix,,,held_out_markers,false,false
+8,c08_informal_deadass,informal_single_token,deadass,1,hypothesis,suffix,,,held_out_markers,false,false
+9,c09_informal_no_cap,informal_full_phrase,no cap,2,hypothesis,suffix,,,held_out_markers,false,false
+10,c10_component_real,component_ablation,real,1,hypothesis,suffix,c04_informal_real_talk,left,component_ablation,true,false
+11,c11_component_talk,component_ablation,talk,1,hypothesis,suffix,c04_informal_real_talk,right,component_ablation,true,false
+12,c12_component_on,component_ablation,on,1,hypothesis,suffix,c05_informal_on_god,left,component_ablation,true,false
+13,c13_component_god,component_ablation,god,1,hypothesis,suffix,c05_informal_on_god,right,component_ablation,true,false
+14,c14_component_no,component_ablation,no,1,hypothesis,suffix,c09_informal_no_cap,left,component_ablation,true,false
+15,c15_component_cap,component_ablation,cap,1,hypothesis,suffix,c09_informal_no_cap,right,component_ablation,true,false
+16,c16_formal_honestly,formal_control,honestly,1,hypothesis,suffix,,,formal_marker_controls,false,false
+17,c17_formal_seriously,formal_control,seriously,1,hypothesis,suffix,,,formal_marker_controls,false,false
+18,c18_formal_in_fact,formal_control,in fact,2,hypothesis,suffix,,,formal_marker_controls,false,false
+19,c19_random_nearby,random_control,nearby,1,hypothesis,suffix,,,random_phrase_controls,false,false
+20,c20_random_outside,random_control,outside,1,hypothesis,suffix,,,random_phrase_controls,false,false
+21,c21_random_in_the,random_control,in the,2,hypothesis,suffix,,,random_phrase_controls,false,false
+22,c22_random_with_it,random_control,with it,2,hypothesis,suffix,,,random_phrase_controls,false,false
+23,c23_random_at_this,random_control,at this,2,hypothesis,suffix,,,random_phrase_controls,false,false

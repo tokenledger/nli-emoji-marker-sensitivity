@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "design_id": "wnut2026-additional-seed-sensitivity-v1",
+  "frozen": true,
+  "frozen_at": "2026-07-23",
+  "parent_config": "configs/experiment_v6.json",
+  "parent_config_sha256": "9bf8c66e9c2d793e8aa80ecd323789df34af6c30bdf3918eedb721f41f5724b2",
+  "purpose": "Estimate training-seed sensitivity without rerunning the complete five-model publication matrix.",
+  "decision_rule": "Complete every job in the selected profile. Do not add or remove cells after inspecting new outcomes; failures may only be retried under the same frozen identity.",
+  "profiles": {
+    "electra_full": {
+      "model": "electra",
+      "reference_completed_seeds": [42],
+      "new_seeds": [13, 21, 87, 101],
+      "datasets": ["snli", "multi_nli"],
+      "marker_folds": ["fold_1", "fold_2", "fold_3"],
+      "steps": [
+        "baseline",
+        "augmentation",
+        "hybrid",
+        "clean_control",
+        "preprocessing",
+        "marker_oracle",
+        "stats"
+      ],
+      "expected_jobs": 156,
+      "evidence_scope": "Full additional-seed matrix for ELECTRA. Together with seed 42, this supports five-seed ELECTRA summaries and seed-aware inference for the registered cells."
+    },
+    "roberta_partial": {
+      "model": "roberta",
+      "reference_completed_seeds": [42],
+      "new_seeds": [13, 87],
+      "datasets": ["snli", "multi_nli"],
+      "marker_folds": ["fold_1"],
+      "steps": ["baseline", "augmentation", "hybrid", "preprocessing"],
+      "expected_jobs": 24,
+      "evidence_scope": "Three-seed directional sensitivity for H1-H4 on fold 1 only; not a complete RoBERTa-large multiseed matrix."
+    },
+    "roberta_base_partial": {
+      "model": "roberta_base",
+      "reference_completed_seeds": [42],
+      "new_seeds": [13, 87],
+      "datasets": ["snli", "multi_nli"],
+      "marker_folds": ["fold_1"],
+      "steps": ["baseline", "augmentation", "hybrid", "preprocessing"],
+      "expected_jobs": 24,
+      "evidence_scope": "Three-seed directional sensitivity for H1-H4 on fold 1 only; not a complete RoBERTa-base multiseed matrix."
+    },
+    "timelm_partial": {
+      "model": "timelm",
+      "reference_completed_seeds": [42],
+      "new_seeds": [13, 87],
+      "datasets": ["snli", "multi_nli"],
+      "marker_folds": ["fold_1"],
+      "steps": ["baseline", "augmentation", "hybrid", "preprocessing"],
+      "expected_jobs": 24,
+      "evidence_scope": "Three-seed directional sensitivity for H1-H4 on fold 1 only; not a complete TimeLM multiseed matrix."
+    },
+    "bertweet_partial": {
+      "model": "bertweet",
+      "reference_completed_seeds": [42],
+      "new_seeds": [13, 87],
+      "datasets": ["snli", "multi_nli"],
+      "marker_folds": ["fold_1"],
+      "steps": ["baseline", "augmentation", "hybrid", "preprocessing"],
+      "expected_jobs": 24,
+      "evidence_scope": "Three-seed directional sensitivity for H1-H4 on fold 1 only; not a complete BERTweet multiseed matrix."
+    }
+  },
+  "reporting_limits": [
+    "Only ELECTRA has a complete additional-seed matrix under this design.",
+    "The other four models cover fold 1 and four H1-H4-relevant systems only.",
+    "Do not report full-matrix cross-model seed uncertainty from partial profiles.",
+    "Do not use partial profiles for formal clean non-inferiority because the compute-matched clean-control system is outside their scope.",
+    "Report Colab hardware, source commit, completed/failed attempts, and observed worker time for every profile."
+  ]
+}
