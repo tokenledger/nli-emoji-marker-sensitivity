@@ -1,8 +1,8 @@
-# Emoji Substitution and Appended Discourse Markers in NLI
+# Emoji Substitution and Appended Phrases in Natural Language Inference
 
-Code for the paper "Emoji Substitution and Appended Discourse Markers in NLI:
-Accuracy Loss Depends on Replacement Structure and on the Appended Phrase"
-(Avinash Goutham Aluguvelly).
+Code for the paper "Averages Conceal Where Accuracy Is Lost: Emoji Substitution
+and Appended Phrases in Natural Language Inference" (Avinash Goutham
+Aluguvelly).
 
 The paper fine-tunes six encoders (ELECTRA-small, RoBERTa-base, RoBERTa-large,
 TimeLM-21, BERTweet, DeBERTa-v3-base) on SNLI and MultiNLI, evaluates them on
